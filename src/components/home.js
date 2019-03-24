@@ -50,10 +50,11 @@ class Home extends Component {
             <h2>Products</h2>
           </a>
           <Products />
-        </div>
-		<br />
+		  <br />
 		<br />
 		<Footer />
+        </div>
+		
       </div>
     );
   }
