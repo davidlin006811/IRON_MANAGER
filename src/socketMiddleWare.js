@@ -4,6 +4,7 @@ import {
   deleteProduct
 } from "./actions/products";
 import { addNewMessage, deleteMessage } from "./actions/messages";
+import { addNewReview, deleteReview } from "./actions/reviews";
 export const createSocketMiddleWare = socket => {
   let eventFlag = false;
   return store => next => action => {
@@ -24,6 +25,12 @@ export const createSocketMiddleWare = socket => {
       });
       socket.on("delete message", data => {
         next(deleteMessage(data));
+      });
+	   socket.on("new review", data => {
+        next(addNewReview(data));
+      });
+      socket.on("delete review", data => {
+        next(deleteReview(data));
       });
     }
     return next(action);

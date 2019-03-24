@@ -6387,3 +6387,16 @@ a.text-dark:hover, a.text-dark:focus {
   height: 300px;
   overflow-y: scroll;
 }
+.positive {
+  color: #f8e602
+}
+.negative {
+  color: #aaa;
+}
+#reviews p{
+  
+ margin-bottom: 0;
+}
+#reviews i {
+  padding-bottom: 1rem;
+}
