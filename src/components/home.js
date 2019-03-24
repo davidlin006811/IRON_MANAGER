@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-
-import Products from "./products/index";
+import Products from "./products";
+import Messages from "./messages";
 import NavBar from "./navbar";
-import isEmpty from "../common/isEmpty";
 import Footer from "./footer";
-import { addNewProduct } from "../actions/products";
 import { socket } from "../../settings";
 class Home extends Component {
   constructor(props) {
@@ -14,14 +11,11 @@ class Home extends Component {
   }
   componentDidMount() {
     const jwtToken = localStorage.getItem("jwtToken");
-
-    if (jwtToken !== null) {
-      socket.emit("admin init", jwtToken, result => {
-        console.log(result);
-      });
-    }
-
-   
+    // if (jwtToken !== null) {
+    socket.emit("admin init", jwtToken, result => {
+      console.log(result);
+    });
+    //  }
   }
   componentWillReceiveProps(nextProps) {
     if (!nextProps.auth.isAuthenticated) {
@@ -50,11 +44,22 @@ class Home extends Component {
             <h2>Products</h2>
           </a>
           <Products />
-		  <br />
-		<br />
-		<Footer />
+          <br />
+          <a
+            className="btn btn-primary btn-lg btn-block"
+            data-toggle="collapse"
+            href="#messages"
+            role="button"
+            aria-expanded="false"
+            aria-controls="messages"
+          >
+            <h2>Inquiries</h2>
+          </a>
+          <Messages />
+          <br />
+          <br />
+          <Footer />
         </div>
-		
       </div>
     );
   }
@@ -65,7 +70,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps
-  
-)(Home);
+export default connect(mapStateToProps)(Home);
