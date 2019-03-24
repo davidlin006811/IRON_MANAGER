@@ -1,7 +1,7 @@
 import React from "react";
 import NavBarClient from "../navBar_Client";
 import Footer from "../footer";
-import LoginForm from "./LoginForm";
+import LoginForm from "./loginForm";
 
 class LoginPage extends React.Component {
   render() {
