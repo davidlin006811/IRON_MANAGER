@@ -7,7 +7,7 @@ import NavBar from "./navbar";
 import isEmpty from "../common/isEmpty";
 
 import { addNewProduct } from "../actions/products";
-import { socket } from "../store";
+import { socket } from "../../settings";
 class Home extends Component {
   constructor(props) {
     super(props);
