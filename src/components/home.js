@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-//import io from "socket.io-client";
+
 import Products from "./products/index";
 import NavBar from "./navbar";
 import isEmpty from "../common/isEmpty";
-//import SERVER_URL from "../settings.js";
-import { addNewProduct } from "../actions/products";
-//const m = ({ products }) => ({ products });
 
-/*@connect(
-  m,
-  { addNewProduct }
-)*/
-//const socket = io("http://localhost:3000");
+import { addNewProduct } from "../actions/products";
+import { socket } from "../store";
 class Home extends Component {
   constructor(props) {
     super(props);
