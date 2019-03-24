@@ -7,5 +7,5 @@ export const NEW_PRODUCT = "NEW_PRODUCT";
 export const UPDATE_PRODUCT_FINISH = "UPDATE_PRODUCT_FINISH";
 export const DELETE_PRODUCT_FINISH = "DELETE_PRODUCT_FINISH";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
-//export const ROOT = "https://powerful-badlands-91453.herokuapp.com/api/";
-export const ROOT = "http://localhost:3000/api/";
+export const ROOT = "https://powerful-badlands-91453.herokuapp.com/api/";
+//export const ROOT = "http://localhost:3000/api/";
