@@ -8,6 +8,12 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
+  devServer: {
+    contentBase: path.join(__dirname),
+    compress: true,
+    port: 5000,
+    historyApiFallback: true
+  },
   resolve: { modules: MODULE_PATHS, extensions: [".js", ".jsx", ".css"] },
   module: {
     rules: [
