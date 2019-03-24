@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Products from "./products/index";
 import NavBar from "./navbar";
 import isEmpty from "../common/isEmpty";
-
+import Footer from "./footer";
 import { addNewProduct } from "../actions/products";
 import { socket } from "../../settings";
 class Home extends Component {
@@ -15,17 +15,13 @@ class Home extends Component {
   componentDidMount() {
     const jwtToken = localStorage.getItem("jwtToken");
 
-    const that = this;
-
     if (jwtToken !== null) {
       socket.emit("admin init", jwtToken, result => {
         console.log(result);
       });
     }
 
-    /* socket.on("new product", data =>
-      that.props.addNewProduct(data.createdProduct)
-    );*/
+   
   }
   componentWillReceiveProps(nextProps) {
     if (!nextProps.auth.isAuthenticated) {
@@ -55,6 +51,9 @@ class Home extends Component {
           </a>
           <Products />
         </div>
+		<br />
+		<br />
+		<Footer />
       </div>
     );
   }
@@ -64,11 +63,8 @@ function mapStateToProps(state) {
     auth: state.auth
   };
 }
-Home.propTypes = {
-  addNewProduct: PropTypes.func.isRequired
-};
 
 export default connect(
-  mapStateToProps,
-  { addNewProduct }
+  mapStateToProps
+  
 )(Home);
