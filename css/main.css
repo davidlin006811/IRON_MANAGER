@@ -6400,3 +6400,15 @@ a.text-dark:hover, a.text-dark:focus {
 #reviews i {
   padding-bottom: 1rem;
 }
+.career-description {
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: scroll;
+  text-align: center;
+}
+.word {
+  color: #2b579a;
+}
+.pdf {
+  color: #ff2116;
+}

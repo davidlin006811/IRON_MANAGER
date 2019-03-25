@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Products from "./products";
 import Messages from "./messages";
 import Reviews from "./reviews";
+import Careers from "./careers";
 import NavBar from "./navbar";
 import Footer from "./footer";
 import { socket } from "../../settings";
@@ -45,6 +46,18 @@ class Home extends Component {
             <h2>Products</h2>
           </a>
           <Products />
+		    <br />
+          <a
+            className="btn btn-primary btn-lg btn-block"
+            data-toggle="collapse"
+            href="#careers"
+            role="button"
+            aria-expanded="false"
+            aria-controls="careers"
+          >
+            <h2>Careers</h2>
+          </a>
+          <Careers />
           <br />
           <a
             className="btn btn-primary btn-lg btn-block"

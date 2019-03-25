@@ -25,5 +25,12 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const NEW_REVIEW = "NEW_REVIEW";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 
+/* career */
+export const REQUEST_CAREER = "REQUEST_CAREER";
+export const RECEIVE_CAREER = "RECEIVE_CAREER";
+export const UPDATE_CAREER = "UPDATE_CAREER";
+export const DELETE_CAREER = "DELETE_CAREER";
+export const NEW_CAREER = "NEW_CAREER";
+
 export const ROOT = "https://powerful-badlands-91453.herokuapp.com/api/";
 //export const ROOT = "http://localhost:3000/api/";
