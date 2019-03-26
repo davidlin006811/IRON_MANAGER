@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { SketchPicker } from "react-color";
-import { Modal, TextFieldGroup, themeValidation } from "../../common";
+import { Modal, TextFieldGroup } from "../../common";
 import { SUCCESS, ERROR } from "../../../settings";
 import { ROOT } from "../../actions/types";
 class PresetForm extends Component {
@@ -47,7 +47,12 @@ class PresetForm extends Component {
     }
   };
   checkValid = () => {
-    const { errors, isValid } = themeValidation(this.state);
+    let isValid = true;
+    let errors = {};
+    if (this.state.name.replace(/\s/g, "") === "") {
+      isValid = false;
+      errors.name = "This field is required";
+    }
 
     if (!isValid) {
       this.setState({ errors });
