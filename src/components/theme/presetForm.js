@@ -46,7 +46,7 @@ class PresetForm extends Component {
         });
     }
   };
-  isValid = () => {
+  checkValid = () => {
     const { errors, isValid } = themeValidation(this.state);
 
     if (!isValid) {
@@ -58,7 +58,7 @@ class PresetForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    if (this.isValid()) {
+    if (this.checkValid()) {
       const preset = {
         name: this.state.name,
         background: this.state.background,
