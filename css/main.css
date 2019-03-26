@@ -6412,3 +6412,17 @@ a.text-dark:hover, a.text-dark:focus {
 .pdf {
   color: #ff2116;
 }
+.theme-item{
+  width:120px;
+  text-align: right;
+}
+.theme-value{
+  width:100px;
+  padding-left: 20px;
+}
+.color-pad {
+  width:20px;
+  height: 20px;
+  border: 1px solid gray;
+  display: inline-block;
+}

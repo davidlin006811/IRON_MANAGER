@@ -32,5 +32,10 @@ export const UPDATE_CAREER = "UPDATE_CAREER";
 export const DELETE_CAREER = "DELETE_CAREER";
 export const NEW_CAREER = "NEW_CAREER";
 
+/* theme */
+export const REQUEST_THEME = "REQUEST_THEME";
+export const RECEIVE_THEME = "RECEIVE_THEME";
+export const NEW_THEME = "NEW_THEME";
+
 export const ROOT = "https://powerful-badlands-91453.herokuapp.com/api/";
 //export const ROOT = "http://localhost:3000/api/";

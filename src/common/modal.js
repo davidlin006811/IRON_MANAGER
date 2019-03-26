@@ -3,7 +3,7 @@ import SuccessIcon from "../images/success.svg";
 import ErrorIcon from "../images/error.svg";
 import WarningIcon from "../images/warning.svg";
 import InformationIcon from "../images/information.svg";
-
+import { SUCCESS, ERROR, WARNING } from "../../settings";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -17,13 +17,13 @@ class Modal extends React.Component {
     //console.log(this.props);
     //console.log(this.state);
     switch (this.props.type) {
-      case "success":
+      case SUCCESS:
         alertIcon = SuccessIcon;
         break;
-      case "error":
+      case ERROR:
         alertIcon = ErrorIcon;
         break;
-      case "warning":
+      case WARNING:
         alertIcon = WarningIcon;
         break;
       default:

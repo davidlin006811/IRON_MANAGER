@@ -4,6 +4,7 @@ import Products from "./products";
 import Messages from "./messages";
 import Reviews from "./reviews";
 import Careers from "./careers";
+import Theme from "./theme";
 import NavBar from "./navbar";
 import Footer from "./footer";
 import { socket } from "../../settings";
@@ -15,7 +16,7 @@ class Home extends Component {
     const jwtToken = localStorage.getItem("jwtToken");
     // if (jwtToken !== null) {
     socket.emit("admin init", jwtToken, result => {
-      console.log(result);
+      // console.log(result);
     });
     //  }
   }
@@ -26,7 +27,7 @@ class Home extends Component {
     }
   }
   render() {
-    console.log("props: ", this.props);
+    //console.log("props: ", this.props);
     return (
       <div>
         <NavBar />
@@ -46,7 +47,7 @@ class Home extends Component {
             <h2>Products</h2>
           </a>
           <Products />
-		    <br />
+          <br />
           <a
             className="btn btn-primary btn-lg btn-block"
             data-toggle="collapse"
@@ -82,6 +83,18 @@ class Home extends Component {
             <h2>Reviews</h2>
           </a>
           <Reviews />
+          <br />
+          <a
+            className="btn btn-primary btn-lg btn-block"
+            data-toggle="collapse"
+            href="#theme"
+            role="button"
+            aria-expanded="false"
+            aria-controls="theme"
+          >
+            <h2>Theme</h2>
+          </a>
+          <Theme />
           <br />
           <br />
           <Footer />

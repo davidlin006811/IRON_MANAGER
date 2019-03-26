@@ -6,7 +6,7 @@ import {
   productValidation,
   Modal
 } from "../../common";
-
+import { ERROR } from "../../../settings";
 import { ROOT } from "../../actions/types";
 
 class ProductForm extends Component {
@@ -84,7 +84,7 @@ class ProductForm extends Component {
       images: availableFiles,
       showModal: showModal,
       modalMessage: "File size could not greater than 5 MB",
-      modalType: "error"
+      modalType: ERROR
     });
   };
   closeModal = () => {
