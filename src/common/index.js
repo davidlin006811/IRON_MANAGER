@@ -8,3 +8,6 @@ export { default as productValidation } from "./validators/product";
 export { default as careerValidation } from "./validators/career";
 export { default as Modal } from "./modal";
 export { default as getFileExtension } from "./fileType";
+export {
+  default as changePasswordValidataion
+} from "./validators/changePassword";

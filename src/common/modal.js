@@ -36,9 +36,10 @@ class Modal extends React.Component {
           <img
             src={alertIcon}
             alt="IRON Rat Customs Powder Coating Icon"
-            styel={{ width: "10%" }}
+            styel={{ width: "8%" }}
           />
-          <p>{this.props.content}</p>
+
+          <p style={{ paddingTop: "10px" }}>{this.props.content}</p>
 
           <div className="modal-footer">
             <button className="btn btn-info" onClick={this.onDismiss}>

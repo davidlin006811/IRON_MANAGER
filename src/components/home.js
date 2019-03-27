@@ -5,6 +5,7 @@ import Messages from "./messages";
 import Reviews from "./reviews";
 import Careers from "./careers";
 import Theme from "./theme";
+import ChangePassword from "./changePassword";
 import NavBar from "./navbar";
 import Footer from "./footer";
 import { socket } from "../../settings";
@@ -95,6 +96,18 @@ class Home extends Component {
             <h2>Theme</h2>
           </a>
           <Theme />
+          <br />
+          <a
+            className="btn btn-primary btn-lg btn-block"
+            data-toggle="collapse"
+            href="#changePassword"
+            role="button"
+            aria-expanded="false"
+            aria-controls="changePassword"
+          >
+            <h2>Password</h2>
+          </a>
+          <ChangePassword />
           <br />
           <br />
           <Footer />
