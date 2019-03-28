@@ -8,6 +8,7 @@ const TextFieldGroup = ({
   error,
   type,
   onChange,
+  placeholder,
   checkUserExists
 }) => {
   return (
@@ -22,6 +23,7 @@ const TextFieldGroup = ({
         value={value}
         type={type}
         name={field}
+        placeholder={placeholder}
         className="form-control form-control-lg"
       />
       {error && (

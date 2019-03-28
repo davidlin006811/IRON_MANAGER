@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Modal, TextFieldGroup, changePasswordValidataion } from "../common";
-import { SUCCESS, ERROR } from "../../settings";
-import { ROOT } from "../actions/types";
+import { Modal, TextFieldGroup, changePasswordValidataion } from "../../common";
+import { SUCCESS, ERROR } from "../../../settings";
+import { ROOT } from "../../actions/types";
 class ChangePassword extends Component {
   constructor(props) {
     super(props);
@@ -107,8 +107,8 @@ class ChangePassword extends Component {
     return (
       <div className="collapse" id="changePassword">
         <div className="card card-body text-dark">
-          <h5 className="text-center">Reset Password</h5>
-          <form>
+          <h5 className="text-center">Change Password</h5>
+          <form autoComplete="off">
             <TextFieldGroup
               field="oldPassword"
               label="Old Password"
