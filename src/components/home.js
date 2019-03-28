@@ -5,7 +5,7 @@ import Messages from "./messages";
 import Reviews from "./reviews";
 import Careers from "./careers";
 import Theme from "./theme";
-import ChangePassword from "./changePassword";
+import { ChangePassword } from "./password";
 import NavBar from "./navbar";
 import Footer from "./footer";
 import { socket } from "../../settings";
