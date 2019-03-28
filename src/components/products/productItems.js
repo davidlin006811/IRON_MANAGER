@@ -38,7 +38,7 @@ class ProductsItem extends Component {
     });
   };
   render() {
-    const { _id, name, description, images } = this.props.item;
+    const { _id, name, type, description, images } = this.props.item;
     let info;
     const productImages = images.map((image, index) => {
       const key = `productImage-${index}`;
@@ -64,19 +64,27 @@ class ProductsItem extends Component {
                   style={{ fontSize: "16px", color: "#317cf6" }}
                   onClick={this.enableDelete}
                 >
-                  Delete
+                  <h6>
+                    <i className="far fa-trash-alt" />
+                  </h6>
                 </button>
                 <button
                   className="btn  btn-link float-right"
                   style={{ fontSize: "16px", color: "#317cf6" }}
                   onClick={this.toggleEdit}
                 >
-                  Edit
+                  <h6>
+                    <i className="far fa-edit" />
+                  </h6>
                 </button>
               </div>
               <p>
                 <label>Name: &nbsp; </label>
                 {name}
+              </p>
+              <p>
+                <label>Type: &nbsp; </label>
+                {type}
               </p>
               <p>
                 <label>Description: &nbsp; </label>
@@ -97,14 +105,18 @@ class ProductsItem extends Component {
                 style={{ fontSize: "16px", color: "#317cf6" }}
                 onClick={this.enableDelete}
               >
-                Delete
+                <h6>
+                  <i className="far fa-trash-alt" />
+                </h6>
               </button>
               <button
                 className="btn  btn-link float-right"
                 style={{ fontSize: "16px", color: "#317cf6" }}
                 onClick={this.toggleEdit}
               >
-                Close
+                <h6>
+                  <i className="fas fa-times" />
+                </h6>
               </button>
             </div>
             <ProductUpdate

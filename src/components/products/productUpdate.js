@@ -8,6 +8,7 @@ class ProductUpdate extends Component {
     super(props);
     this.state = {
       name: this.props.product.name,
+      type: this.props.product.type,
       description: this.props.product.description,
       errors: {},
       isLoading: false
@@ -24,10 +25,14 @@ class ProductUpdate extends Component {
 
     return isValid;
   };
-
+  selectType = e => {
+    this.setState({
+      type: e.target.value
+    });
+  };
   onSubmit = e => {
     e.preventDefault();
-    //console.log(this.state);
+
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       let updateItems = {};
@@ -40,14 +45,11 @@ class ProductUpdate extends Component {
       if (this.props.product.description !== this.state.description) {
         updateItems.description = this.state.description;
       }
-      // console.log("updateItems: ", updateItems);
-      if (Object.keys(updateItems).length > 0) {
-        //  console.log("submit");
 
+      if (Object.keys(updateItems).length > 0) {
         axios
           .patch(this.url, updateItems)
           .then(response => {
-            // console.log(response);
             this.props.updateFinish();
           })
           .catch(error =>
@@ -65,8 +67,7 @@ class ProductUpdate extends Component {
   };
 
   render() {
-    console.log(this.props);
-    const { name, description, errors, isLoading } = this.state;
+    const { name, type, description, errors, isLoading } = this.state;
 
     return (
       <div className="card-body text-dark">
@@ -81,7 +82,16 @@ class ProductUpdate extends Component {
             this.onChange(e);
           }}
         />
+        <div className="form-group">
+          <label>Type</label>
 
+          <br />
+          <select className="text-dark" onChange={this.selectType} value={type}>
+            <option value="service">Service</option>
+            <option value="product">Product</option>
+            <option value="solution">Solution</option>
+          </select>
+        </div>
         <TextAreaGroup
           field="description"
           label="Product Description"

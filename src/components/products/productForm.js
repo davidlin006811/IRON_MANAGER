@@ -14,7 +14,7 @@ class ProductForm extends Component {
     super(props);
     this.state = {
       name: "",
-      type: "",
+      type: "service",
       description: "",
       images: [],
       errors: {},
@@ -25,7 +25,6 @@ class ProductForm extends Component {
       modalMessage: ""
     };
     this.url = `${ROOT}product`;
-    //console.log(this.url);
   }
 
   isValid = () => {
@@ -40,7 +39,7 @@ class ProductForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    //console.log(this.state);
+
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       let bodyFormData = new FormData();
@@ -53,11 +52,10 @@ class ProductForm extends Component {
       axios
         .post(this.url, bodyFormData)
         .then(response => {
-          console.log(response);
           this.setState({
             isLoading: false,
             name: "",
-            type: "",
+            type: "service",
             description: "",
             images: []
           });
@@ -74,11 +72,16 @@ class ProductForm extends Component {
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  selectType = e => {
+    this.setState({
+      type: e.target.value
+    });
+  };
   imgOnChange = e => {
     const files = Array.from(e.target.files);
     const availableFiles = files.filter(file => file.size <= 1024 * 1024 * 5);
     const tooBigFiles = files.filter(file => file.size > 1024 * 1024 * 5);
-    console.log("too big files: ", tooBigFiles);
+
     const showModal = tooBigFiles.length > 0 ? true : false;
     this.setState({
       images: availableFiles,
@@ -95,16 +98,16 @@ class ProductForm extends Component {
     });
   };
   render() {
-    //console.log(this.state);
     const {
       name,
+      type,
       description,
       images,
       errors,
       isLoading,
       imageUploading
     } = this.state;
-    //console.log("images: ", images);
+
     const upLoadTxt =
       images.length > 0 ? `Total images: ${images.length}` : "Add images";
     const modal = this.state.showModal ? (
@@ -114,7 +117,7 @@ class ProductForm extends Component {
         closeModal={this.closeModal}
       />
     ) : null;
-    //console.log(modal);
+
     return (
       <div className="card card-body text-dark">
         <h5 className="text-center">Add Product</h5>
@@ -129,7 +132,16 @@ class ProductForm extends Component {
             this.onChange(e);
           }}
         />
+        <div className="form-group">
+          <label>Type</label>
 
+          <br />
+          <select className="text-dark" onChange={this.selectType} value={type}>
+            <option value="service">Service</option>
+            <option value="product">Product</option>
+            <option value="solution">Solution</option>
+          </select>
+        </div>
         <TextAreaGroup
           field="description"
           label="Product Description"
