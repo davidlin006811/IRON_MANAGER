@@ -6426,3 +6426,11 @@ a.text-dark:hover, a.text-dark:focus {
   border: 1px solid gray;
   display: inline-block;
 }
+.react-phone-number-input__row {
+  width: 100%;
+}
+.react-phone-number-input__country-select option{
+
+  width: 200px !important;
+  overflow-x: hidden !important;
+}
