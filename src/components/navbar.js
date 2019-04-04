@@ -13,7 +13,6 @@ class NavBar extends Component {
     this.props.logout();
   };
   render() {
-    console.log("nav props: ", this.props);
     return (
       <nav className="navbar navbar-expand-lg navbar-primary bg-dark">
         <a className="navbar-brand" href={CLIENT_URL}>

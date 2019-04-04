@@ -23,8 +23,6 @@ class CareerForm extends Component {
       modalMessage: ""
     };
     this.url = `${ROOT}career`;
-
-    //console.log(this.url);
   }
 
   isValid = () => {
@@ -39,7 +37,7 @@ class CareerForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    //console.log(this.state);
+
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       let bodyFormData = new FormData();
@@ -51,7 +49,6 @@ class CareerForm extends Component {
       axios
         .post(this.url, bodyFormData)
         .then(response => {
-          console.log(response);
           this.setState({
             isLoading: false,
             title: "",
@@ -75,7 +72,7 @@ class CareerForm extends Component {
     const files = Array.from(e.target.files);
     const availableFiles = files.filter(file => file.size <= 1024 * 1024 * 5);
     const tooBigFiles = files.filter(file => file.size > 1024 * 1024 * 5);
-    console.log("too big files: ", tooBigFiles);
+
     const showModal = tooBigFiles.length > 0 ? true : false;
     this.setState({
       images: availableFiles,
@@ -92,9 +89,8 @@ class CareerForm extends Component {
     });
   };
   render() {
-    console.log(this.state);
     const { title, description, images, errors, isLoading } = this.state;
-    //console.log("images: ", images);
+
     const upLoadTxt =
       images.length > 0 ? `Total images: ${images.length}` : "Add images";
     const modal = this.state.showModal ? (
@@ -104,7 +100,7 @@ class CareerForm extends Component {
         closeModal={this.closeModal}
       />
     ) : null;
-    //console.log(modal);
+
     return (
       <div className="card card-body text-dark">
         <h5 className="text-center">Add Career</h5>

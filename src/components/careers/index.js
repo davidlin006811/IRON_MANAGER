@@ -26,7 +26,7 @@ class Careers extends Component {
       <div className="collapse" id="careers">
         <div id="careerlist">
           {careerItems.map((item, i) => (
-            <CareerItem key={i} career={item} />
+            <CareerItem key={item._id} career={item} />
           ))}
         </div>
         <CareerForm />

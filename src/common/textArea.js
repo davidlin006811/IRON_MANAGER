@@ -14,7 +14,7 @@ const TextAreaGroup = ({ field, value, label, error, type, onChange }) => {
         type={type}
         name={field}
         rows="8"
-        className="form-control"
+        className="form-control form-control-lg"
       />
       {error && (
         <span className="help-block" style={{ color: "red" }}>

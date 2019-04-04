@@ -26,7 +26,7 @@ class LoginForm extends Component {
   onSubmit = e => {
     e.preventDefault();
     const isValid = this.passValid();
-    //console.log("isValid: ", isValid);
+
     if (isValid) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(

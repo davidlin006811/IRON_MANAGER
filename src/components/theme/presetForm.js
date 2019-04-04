@@ -13,6 +13,7 @@ class PresetForm extends Component {
       text: "#666",
       link: "#666",
       button: "#666",
+      buttonFont: "#666",
       errors: {},
       showModal: false,
       modalType: "",
@@ -20,7 +21,8 @@ class PresetForm extends Component {
       displayBGColorPicker: false,
       displayTextColorPicker: false,
       displayLinkColorPicker: false,
-      displayBtnColorPicker: false
+      displayBtnColorPicker: false,
+      displayBtnFontColorPicker: false
     };
   }
   handleDisplayColorPicker = type => {
@@ -38,6 +40,11 @@ class PresetForm extends Component {
       case "link":
         this.setState({
           displayLinkColorPicker: !this.state.displayLinkColorPicker
+        });
+        break;
+      case "buttonFont":
+        this.setState({
+          displayBtnFontColorPicker: !this.state.displayBtnFontColorPicker
         });
         break;
       default:
@@ -69,7 +76,8 @@ class PresetForm extends Component {
         background: this.state.background,
         text: this.state.text,
         link: this.state.link,
-        button: this.state.button
+        button: this.state.button,
+        buttonFont: this.state.buttonFont
       };
       axios
         .post(`${ROOT}theme`, preset)
@@ -80,6 +88,7 @@ class PresetForm extends Component {
             text: "#666",
             link: "#666",
             button: "#666",
+            buttonFont: "#666",
             errors: {},
             showModal: true,
             modalType: SUCCESS,
@@ -96,6 +105,7 @@ class PresetForm extends Component {
             text: "#666",
             link: "#666",
             button: "#666",
+            buttonFont: "#666",
             errors: {},
             showModal: true,
             modalType: ERROR,
@@ -132,6 +142,11 @@ class PresetForm extends Component {
       button: color.hex
     });
   };
+  onChangeBtnFontColor = color => {
+    this.setState({
+      buttonFont: color.hex
+    });
+  };
   closeModal = () => {
     this.setState({
       showModal: false,
@@ -140,7 +155,16 @@ class PresetForm extends Component {
     });
   };
   render() {
-    const { name, background, text, link, button, errors } = this.state;
+    const {
+      name,
+      background,
+      text,
+      link,
+      button,
+      buttonFont,
+      errors
+    } = this.state;
+
     const modal = this.state.showModal ? (
       <Modal
         type={this.state.modalType}
@@ -244,6 +268,28 @@ class PresetForm extends Component {
             <SketchPicker
               color={button}
               onChangeComplete={this.onChangeBtnColor}
+            />
+          )}
+        </div>
+        <br />
+        <p>
+          <label>Button Font</label> &nbsp;&nbsp;&nbsp;
+          <span className="color-pad" style={{ backgroundColor: buttonFont }} />
+        </p>
+        <input
+          name="buttonFont"
+          value={buttonFont}
+          onClick={() => {
+            this.handleDisplayColorPicker("buttonFont");
+          }}
+          readOnly
+        />
+
+        <div className="color-picker-platte">
+          {this.state.displayBtnFontColorPicker && (
+            <SketchPicker
+              color={buttonFont}
+              onChangeComplete={this.onChangeBtnFontColor}
             />
           )}
         </div>

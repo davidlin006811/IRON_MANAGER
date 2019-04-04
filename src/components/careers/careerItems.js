@@ -42,8 +42,8 @@ class CareerItem extends Component {
         </div>
       );
     });
-    const candidatesComp = candidates.map(candidate => {
-      return <Candidate candidate={candidate} key={candidate.email} />;
+    const candidatesComp = candidates.map((candidate, index) => {
+      return <Candidate candidate={candidate} key={candidate.email + index} />;
     });
     let info;
     if (this.state.toggle) {
