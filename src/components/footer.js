@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center text-primary">
-        <p>2018 Copyright</p>
+        <p>&copy; 2019 Iron Rat Customs</p>
       </div>
     </div>
   );
